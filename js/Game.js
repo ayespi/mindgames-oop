@@ -1,6 +1,7 @@
 function Game(){
   this.start();
   this.buildBoard();
+  this.play();
 }
 
 Game.prototype.start = function(){
@@ -10,14 +11,15 @@ Game.prototype.buildBoard = function(){
     shuffledImages = memoryCardShuffle(cardImages);
     outputBoard = "";
       for (i = 0; i < shuffledImages.length; i += 1){
-        outputBoard += "<div class=\"card\" id=\"card_"+i+"\"><img src=\"images/"+shuffledImages[i]+"\"></div>";
         id = i + 1;
+        outputBoard += "<div class=\"card\" id=\"card_"+id+"\"><img src=\"images/"+shuffledImages[i]+"\"></div>";
         card = new Card(id, shuffledImages[i]);
         gameTiles.push(card);
+        $('.card img').css("visibility","hidden");
         console.log(shuffledImages[i]);
         console.log(gameTiles);
       }
-    $('#page').html(outputBoard);
+    $('#playing-area').html(outputBoard);
     console.log("Board Built...");
 };
 Game.prototype.play = function(){

@@ -1,0 +1,24 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+#wrapper{
+
+}
+#playing-area{
+  width:850px;
+  margin:0px auto;
+  border:1px solid #000000;
+}
+#playing-area > div{
+  width:200px;
+  height:200px;
+  margin:5px;
+  display:inline-block;
+  float:left;
+  background-image: url(../images/bkgd.jpg);
+  border-radius: 10px;
+}
