@@ -18,4 +18,6 @@
                     "img5.jpg",
                     "img6.jpg"
                   ];
+  var cardImage;
+  var cardsFlipped = [];
   var game = new Game();

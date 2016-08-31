@@ -23,14 +23,19 @@ Game.prototype.buildBoard = function(){
 };
 Game.prototype.play = function(){
   console.log("Play Begins...");
-  $('div .card').on('click', function(){
-    $(this).toggleClass("showImage");
-    var cardImage = $(this).find("img").attr("src");
-    console.log(cardImage);
+    $('div .card').on('click', function(){
+      $(this).toggleClass("showImage");
+      cardImage = $(this).find("img").attr("src");
+      cardsFlipped.push(cardImage);
+      if(cardsFlipped.length == 3){
+       if(cardsFlipped[0] == cardsFlipped[1] && cardsFlipped.length){
+           $(this).siblings(".showImage").addClass("match");
+       }
+       $(this).siblings(".showImage").removeClass("showImage");
+       cardsFlipped = [cardsFlipped[2]];
+   }
+    console.log(cardsFlipped);
   });
-};
-Game.prototype.flip = function(){
-  console.log("Game Over...");
 };
 Game.prototype.end = function(){
   console.log("Game Over...");
