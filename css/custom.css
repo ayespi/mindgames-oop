@@ -9,7 +9,8 @@ body {
 
 }
 #playing-area{
-  width:850px;
+  width:845px;
+  height:635px;
   margin:0px auto;
   border:1px solid #000000;
 }
@@ -22,3 +23,9 @@ body {
   background-image: url(../images/bkgd.jpg);
   border-radius: 10px;
 }
+.card > img{
+  border-radius: 10px;
+}
+
+/*.showImage img, .match img{display:block;}*/
+.showImage img, .match img{display:block !important;}

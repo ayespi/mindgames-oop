@@ -15,15 +15,22 @@ Game.prototype.buildBoard = function(){
         outputBoard += "<div class=\"card\" id=\"card_"+id+"\"><img src=\"images/"+shuffledImages[i]+"\"></div>";
         card = new Card(id, shuffledImages[i]);
         gameTiles.push(card);
-        $('.card img').css("visibility","hidden");
         console.log(shuffledImages[i]);
-        console.log(gameTiles);
       }
     $('#playing-area').html(outputBoard);
+    $(".card img").css("display","none");
     console.log("Board Built...");
 };
 Game.prototype.play = function(){
   console.log("Play Begins...");
+  $('div .card').on('click', function(){
+    $(this).toggleClass("showImage");
+    var cardImage = $(this).find("img").attr("src");
+    console.log(cardImage);
+  });
+};
+Game.prototype.flip = function(){
+  console.log("Game Over...");
 };
 Game.prototype.end = function(){
   console.log("Game Over...");
