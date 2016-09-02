@@ -1,5 +1,4 @@
 function Game(){
-  this.start();
   this.buildBoard();
   this.play();
 }
@@ -24,6 +23,10 @@ Game.prototype.buildBoard = function(){
 Game.prototype.play = function(){
   console.log("Play Begins...");
     $('div .card').on('click', function(){
+      if(!timer){
+        timer = new Timer();
+        timer.start();
+      }
       $(this).toggleClass("showImage");
       cardImage = $(this).find("img").attr("src");
       cardsFlipped.push(cardImage);

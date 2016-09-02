@@ -21,16 +21,23 @@
       return shuffledImages;
 
     }
+// Timer Methods
+    function setTime()
+    {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds%60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+    }
 
-    // function flipCard(){
-    //     $(this).toggleClass("showImage");
-    //     var cardImage = $(this).find("img").attr("src");
-    //     cardsFlipped.push(cardImage);
-    //     if(cardsFlipped.length == 3){
-    //       if(cardsFlipped[0] == cardsFlipped[1] && cardsFlipped.length){
-    //           $(this).siblings(".showImage").addClass("match");
-    //       }
-    //       $(this).siblings(".showImage").removeClass("showImage");
-    //       cardsFlipped = [cardsFlipped[2]];
-    //     }
-    // }
+    function pad(val)
+    {
+        var valString = val + "";
+        if(valString.length < 2)
+        {
+            return "0" + valString;
+        }
+        else
+        {
+            return valString;
+        }
+    }
