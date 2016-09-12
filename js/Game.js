@@ -9,6 +9,7 @@ Game.prototype.start = function(){
 Game.prototype.buildBoard = function(){
     shuffledImages = memoryCardShuffle(cardImages);
     outputBoard = "";
+    possibleMatches = (shuffledImages.length)/2;
       for (i = 0; i < shuffledImages.length; i += 1){
         id = i + 1;
         outputBoard += "<div class=\"card\" id=\"card_"+id+"\"><img src=\"images/"+shuffledImages[i]+"\"></div>";
@@ -33,6 +34,17 @@ Game.prototype.play = function(){
       if(cardsFlipped.length == 3){
        if(cardsFlipped[0] == cardsFlipped[1] && cardsFlipped.length){
            $(this).siblings(".showImage").addClass("match");
+           console.log("Match Found!!!");
+           if(matchesFound == 0){
+             matchesFound = 2;
+           }else{
+             matchesFound += 1;
+           }
+           console.log(matchesFound);
+           console.log(possibleMatches);
+           if(matchesFound == possibleMatches){
+             timer.stop();
+           }
        }
        $(this).siblings(".showImage").removeClass("showImage");
        cardsFlipped = [cardsFlipped[2]];
